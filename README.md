@@ -6,7 +6,7 @@ This script downloads, aggregates, and JSON-ifies content stored in a Google spr
 
 ### Running the Script
 
-####Dependencies:
+#### Dependencies:
 
 - Python 2.7
 - gspread library (`pip install gspread`)
@@ -36,7 +36,7 @@ This script downloads, aggregates, and JSON-ifies content stored in a Google spr
 4. Share the "client_email" with your spreadsheet to access the data via the python script
 
 
-####Usage example:
+#### Usage example:
 
 The example uses the credentials in `keyfile.json` and writes JSON from the spreadsheet to `temp_content.json`. The example also uses [this](https://docs.google.com/spreadsheets/d/1h1nuh9a3iZ8JetcZ_lyVCUsvsx23ZCK-x2xb7oSSk2I/edit?usp=sharing) spreadsheet as an example. 
 
@@ -50,3 +50,7 @@ To run the script:
 ### Helpful Links
 
 * [Google Sheets API Documentation](https://developers.google.com/sheets/api)
+
+### License
+
+* [google spreadsheet cms](https://github.com/nicoleyimessier/google_spreadsheet_cms) is distributed under the [MIT license](License.md).
