@@ -1,0 +1,29 @@
+{
+    "foods": [
+        {
+            "dessertName": "ice cream", 
+            "fruitName": "apple", 
+            "veggieName": "carrot"
+        }, 
+        {
+            "dessertName": "candy", 
+            "fruitName": "banana", 
+            "veggieName": "cucumber"
+        }, 
+        {
+            "dessertName": "cookies", 
+            "fruitName": "strawberry", 
+            "veggieName": "tomato"
+        }
+    ], 
+    "furniture": [
+        {
+            "livingRoom": "sofa", 
+            "bedroom": "dresser"
+        }, 
+        {
+            "livingRoom": "coffee table", 
+            "bedroom": "bed"
+        }
+    ]
+}
