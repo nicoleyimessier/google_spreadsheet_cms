@@ -17,7 +17,7 @@ This script downloads, aggregates, and JSON-ifies content stored in a Google spr
 
 1. Eanble Goolge SpreadSheet API and Google Drive API
 2. Make sure the credentials are for a service account. 
-3. Your credentials should be saved as `keyfil.json`. The file should look like this
+3. Your credentials should be saved as `keyfile.json`. The file should look like this
 
 ```
 {
