@@ -15,7 +15,7 @@ def downloadData(keyfile, location):
     print "--- BEGIN RETRIEVING DATA ---"
 
     # Set up JSON
-    data = { "foods": [],"furniture": []}
+    data = { "materials": []}
  
 
     # Download from Google Sheets
@@ -25,29 +25,26 @@ def downloadData(keyfile, location):
     
 
     # First, download food tab by feeding the ("spreadsheet name", "spreadsheet tab name")
-    objects = gsheet.download("spreadsheet_cms_example", "food") 
+    objects = gsheet.download("CFC_Sample_Spreadsheet", "Materials") 
     values = objects.get_all_values()
 
     for rowIndex in range(1, len(values)):
-        foodObj = {}
-        foodObj["fruitName"] = (getCell("fruits", rowIndex, values));
-        foodObj["veggieName"] = getCell("veggies", rowIndex, values);
-        foodObj["dessertName"] = getCell("dessert", rowIndex, values);
+        material = {}
+        material["Title"] = (getCell("Title", rowIndex, values));
+        material["Description"] = getCell("Description", rowIndex, values);
+        material["Materials"] = getCell("Materials", rowIndex, values);
+        material["Uses"] = (getCell("Uses", rowIndex, values));
+        material["UnexpectedUses"] = getCell("UnexpectedUses", rowIndex, values);
+        material["LogoFileName"] = getCell("LogoFileName", rowIndex, values);
+        material["TopDown"] = (getCell("TopDown", rowIndex, values));
+        material["Angled"] = getCell("Angled", rowIndex, values);
+        material["MaterialColor"] = getCell("MaterialColor", rowIndex, values);
+        material["DrawerLabel"] = getCell("DrawerLabel", rowIndex, values);
+        material["UID"] = getCell("UID", rowIndex, values);
+        material["CompanyAbout"] = getCell("CompanyAbout", rowIndex, values);
 
         # Add this assets to the list
-        data["foods"].append(foodObj)
-
-    #second, download the furniture tab
-    objects = gsheet.download("spreadsheet_cms_example", "furniture")
-    values = objects.get_all_values()
-
-    for rowIndex in range(1, len(values)):
-        furnitureObj = {}
-        furnitureObj["livingRoom"] = getCell("Living Room", rowIndex, values);
-        furnitureObj["bedroom"] = (getCell("Bedroom", rowIndex, values));
-
-        # Add this assets to the list
-        data["furniture"].append(furnitureObj)
+        data["materials"].append(material)
 
     # Write to file
     with io.open(location, 'w+', encoding='utf8') as json_file:
