@@ -25,23 +25,64 @@ def downloadData(keyfile, location):
     
 
     # First, download food tab by feeding the ("spreadsheet name", "spreadsheet tab name")
-    objects = gsheet.download("CFC_Sample_Spreadsheet", "Materials") 
+    #objects = gsheet.download("CFC_Sample_Spreadsheet", "Materials")
+    objects = gsheet.download("Material Library Acquistion", "Interactive Content (Do Not Edit)") 
     values = objects.get_all_values()
 
     for rowIndex in range(1, len(values)):
         material = {}
+
         material["Title"] = (getCell("Title", rowIndex, values));
         material["Description"] = getCell("Description", rowIndex, values);
         material["Materials"] = getCell("Materials", rowIndex, values);
         material["Uses"] = (getCell("Uses", rowIndex, values));
-        material["UnexpectedUses"] = getCell("UnexpectedUses", rowIndex, values);
         material["LogoFileName"] = getCell("LogoFileName", rowIndex, values);
         material["TopDown"] = (getCell("TopDown", rowIndex, values));
         material["Angled"] = getCell("Angled", rowIndex, values);
         material["MaterialColor"] = getCell("MaterialColor", rowIndex, values);
         material["DrawerLabel"] = getCell("DrawerLabel", rowIndex, values);
-        material["UID"] = getCell("UID", rowIndex, values);
         material["CompanyAbout"] = getCell("CompanyAbout", rowIndex, values);
+        material["MaterialCategory"] = getCell("MaterialCategory", rowIndex, values);
+        material["CompanyName"] = getCell("CompanyName", rowIndex, values);
+
+        if material["Title"] == "NOT_AVAILABLE":
+            material["Title"] = "";
+
+        if material["Description"] == "NOT_AVAILABLE":
+            material["Description"] = ""; 
+
+        if material["Materials"] == "NOT_AVAILABLE":
+            material["Materials"] = "";
+
+        if material["Uses"] == "NOT_AVAILABLE":
+            material["Uses"] = "";
+
+        if material["LogoFileName"] == "NOT_AVAILABLE":
+            material["LogoFileName"] = ""; 
+            
+        if material["TopDown"] == "NOT_AVAILABLE":
+            material["TopDown"] = "";  
+
+        if material["Angled"] == "NOT_AVAILABLE":
+            material["Angled"] = "";  
+
+        if material["TopDown"] == "NOT_AVAILABLE":
+            material["TopDown"] = "";  
+
+        if material["MaterialColor"] == "NOT_AVAILABLE":
+            material["MaterialColor"] = ""; 
+
+        if material["DrawerLabel"] == "NOT_AVAILABLE":
+            material["DrawerLabel"] = "";  
+
+        if material["CompanyAbout"] == "NOT_AVAILABLE":
+            material["CompanyAbout"] = "";  
+
+        if material["MaterialCategory"] == "NOT_AVAILABLE":
+            material["MaterialCategory"] = "";  
+
+        if material["CompanyName"] == "NOT_AVAILABLE":
+            material["CompanyName"] = "";
 
         # Add this assets to the list
         data["materials"].append(material)
