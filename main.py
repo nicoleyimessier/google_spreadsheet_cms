@@ -37,6 +37,7 @@ def downloadData(keyfile, location):
         material["Materials"] = getCell("Materials", rowIndex, values);
         material["Uses"] = (getCell("Uses", rowIndex, values));
         material["LogoFileName"] = getCell("LogoFileName", rowIndex, values);
+        material["Grid"] = (getCell("Grid", rowIndex, values));
         material["TopDown"] = (getCell("TopDown", rowIndex, values));
         material["Angled"] = getCell("Angled", rowIndex, values);
         material["MaterialColor"] = getCell("MaterialColor", rowIndex, values);
@@ -59,6 +60,9 @@ def downloadData(keyfile, location):
 
         if material["LogoFileName"] == "NOT_AVAILABLE":
             material["LogoFileName"] = ""; 
+
+        if material["Grid"] == "NOT_AVAILABLE":
+            material["Grid"] = "";  
             
         if material["TopDown"] == "NOT_AVAILABLE":
             material["TopDown"] = "";  
