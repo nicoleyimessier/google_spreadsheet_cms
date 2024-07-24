@@ -26,7 +26,7 @@ def downloadData(keyfile, location):
 
     # First, download food tab by feeding the ("spreadsheet name", "spreadsheet tab name")
     #objects = gsheet.download("CFC_Sample_Spreadsheet", "Materials")
-    objects = gsheet.download("Material Library Acquistion", "Interactive Content (Do Not Edit)") 
+    objects = gsheet.download("Material Library Acquistion", "InteractiveContent (ONLY Edit for Spreadsheet CMS)") 
     values = objects.get_all_values()
 
     for rowIndex in range(1, len(values)):
@@ -36,7 +36,6 @@ def downloadData(keyfile, location):
         material["Description"] = getCell("Description", rowIndex, values);
         material["Materials"] = getCell("Materials", rowIndex, values);
         material["Uses"] = (getCell("Uses", rowIndex, values));
-        material["LogoFileName"] = getCell("LogoFileName", rowIndex, values);
         material["Grid"] = (getCell("Grid", rowIndex, values));
         material["TopDown"] = (getCell("TopDown", rowIndex, values));
         material["Angled"] = getCell("Angled", rowIndex, values);
@@ -57,9 +56,6 @@ def downloadData(keyfile, location):
 
         if material["Uses"] == "NOT_AVAILABLE":
             material["Uses"] = "";
-
-        if material["LogoFileName"] == "NOT_AVAILABLE":
-            material["LogoFileName"] = ""; 
 
         if material["Grid"] == "NOT_AVAILABLE":
             material["Grid"] = "";  
