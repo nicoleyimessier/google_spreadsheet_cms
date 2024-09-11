@@ -34,25 +34,24 @@ def downloadData(keyfile, location):
 
         material["Title"] = (getCell("Title", rowIndex, values));
         material["Description"] = getCell("Description", rowIndex, values);
-        material["Materials"] = getCell("Materials", rowIndex, values);
         material["Uses"] = (getCell("Uses", rowIndex, values));
         material["Grid"] = (getCell("Grid", rowIndex, values));
         material["TopDown"] = (getCell("TopDown", rowIndex, values));
-        material["Angled"] = getCell("Angled", rowIndex, values);
         material["MaterialColor"] = getCell("MaterialColor", rowIndex, values);
         material["DrawerLabel"] = getCell("DrawerLabel", rowIndex, values);
         material["CompanyAbout"] = getCell("CompanyAbout", rowIndex, values);
         material["MaterialCategory"] = getCell("MaterialCategory", rowIndex, values);
         material["CompanyName"] = getCell("CompanyName", rowIndex, values);
+        material["Logo"] = getCell("Logo", rowIndex, values);
+
+        if material["Logo"] == "NOT_AVAILABLE":
+            material["Logo"] = "";
 
         if material["Title"] == "NOT_AVAILABLE":
             material["Title"] = "";
 
         if material["Description"] == "NOT_AVAILABLE":
             material["Description"] = ""; 
-
-        if material["Materials"] == "NOT_AVAILABLE":
-            material["Materials"] = "";
 
         if material["Uses"] == "NOT_AVAILABLE":
             material["Uses"] = "";
@@ -61,10 +60,7 @@ def downloadData(keyfile, location):
             material["Grid"] = "";  
             
         if material["TopDown"] == "NOT_AVAILABLE":
-            material["TopDown"] = "";  
-
-        if material["Angled"] == "NOT_AVAILABLE":
-            material["Angled"] = "";  
+            material["TopDown"] = "";   
 
         if material["TopDown"] == "NOT_AVAILABLE":
             material["TopDown"] = "";  
